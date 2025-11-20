@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthCare Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        .navbar {
+            padding: 1.5rem 5%;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2b6cb0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #2b6cb0;
+        }
+
+        .cta-button {
+            background: #2b6cb0;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #2c5282;
+        }
+        .hero {
+            padding: 8rem 5% 5rem;
+            background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: #2d3748;
+        }
+
+        .hero-text p {
+            font-size: 1.25rem;
+            color: #4a5568;
+            margin-bottom: 2rem;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .services {
+            padding: 5rem 5%;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #2d3748;
+            margin-bottom: 1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card h3 {
+            color: #2d3748;
+            margin-bottom: 1rem;
+        }
+
+        .service-icon {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .service-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover .service-icon img {
+            transform: scale(1.05);
+        }
+        .testimonials {
+            padding: 5rem 5%;
+            background: #f7fafc;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+
+        footer {
+            background: #2d3748;
+            color: white;
+            padding: 4rem 5% 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #e2e8f0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+        .success-story {
+            padding: 5rem 5%;
+            background: linear-gradient(to bottom, #f8fafc 0%, #ffffff 100%);
+        }
+
+        .story-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .story-timeline {
+            margin: 4rem 0;
+        }
+
+        .timeline-entry {
+            margin-bottom: 4rem;
+        }
+
+        .timeline-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .timeline-entry.reverse .timeline-content {
+            grid-template-columns: 2fr 1fr;
+        }
+
+        .timeline-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-text {
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-text h3 {
+            color: #2b6cb0;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-text h4 {
+            color: #4a5568;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .care-points {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .care-points li {
+            padding: 0.5rem 0;
+            color: #4a5568;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .care-points li:before {
+            content: "•";
+            color: #2b6cb0;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .patient-testimonial {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            margin-top: 4rem;
+        }
+
+        .testimonial-content {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .patient-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #2b6cb0;
+        }
+
+        blockquote {
+            font-size: 1.25rem;
+            color: #2d3748;
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        blockquote cite {
+            display: block;
+            color: #4a5568;
+            font-style: normal;
+            margin-top: 1rem;
+            font-size: 1rem;
+        }
+
+        .recovery-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 1.5rem;
+            background: #f7fafc;
+            border-radius: 10px;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2b6cb0;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #4a5568;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .timeline-content,
+            .timeline-entry.reverse .timeline-content {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .patient-image {
+                margin: 0 auto;
+            }
+
+            .recovery-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+        .subscription-plans {
+            padding: 5rem 5%;
+            background: #f8fafc;
+        }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .plan-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .plan-card.featured {
+            border: 2px solid #2b6cb0;
+            transform: scale(1.05);
+        }
+
+        .plan-card.featured:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .featured-tag {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: #2b6cb0;
+            color: white;
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .plan-header {
+            text-align: center;
+            padding-bottom: 2rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .plan-header h3 {
+            color: #2d3748;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 0.25rem;
+        }
+
+        .price .amount {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2b6cb0;
+        }
+
+        .price .period {
+            color: #718096;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .plan-features li {
+            padding: 0.75rem 0;
+            color: #4a5568;
+        }
+
+        .plan-button {
+            display: block;
+            text-align: center;
+            background: #2b6cb0;
+            color: white;
+            padding: 1rem;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            font-weight: 500;
+        }
+
+        .plan-button:hover {
+            background: #2c5282;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">HealthCare</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#about">About Us</a>
+                <a href="#contact">Contact</a>
+                <a href="#appointment" class="cta-button">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Your Health, Our Priority</h1>
+                <p>Experience personalized healthcare services designed around your needs. Our team of expert doctors is here to provide you with the best medical care.</p>
+                <a href="#appointment" class="cta-button">Book an Appointment</a>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800" alt="Doctor with patient" >
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="section-title">
+            <h2>Our Services</h2>
+            <p>Comprehensive healthcare solutions for you and your family</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <img src="https://img.freepik.com/free-photo/young-female-doctor-with-patient-hospital_23-2148827198.jpg" alt="Primary Care">
+                </div>
+                <h3>Primary Care</h3>
+                <p>Routine check-ups, preventive care, and health maintenance for patients of all ages.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <img src="https://img.freepik.com/free-photo/medical-workers-covid-19-vaccination-concept-confident-professional-doctor-female-nurse-blue-scrubs-stethoscope-showing-thumbs-up-assure-guarantee-quality-service-clinic_1258-57360.jpg" alt="Specialized Treatment">
+                </div>
+                <h3>Specialized Treatment</h3>
+                <p>Expert care in various medical specialties to address specific health conditions.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <img src="https://img.freepik.com/free-photo/doctor-having-video-call-medical-consultation-with-patient-physician-working-overtime-healthcare-service-clinic-office-specialist-discussing-symptoms-disease-treatment-with-person-virtual-meeting_482257-45862.jpg" alt="Telemedicine">
+                </div>
+                <h3>Telemedicine</h3>
+                <p>Virtual consultations and follow-ups from the comfort of your home.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <img src="https://img.freepik.com/free-photo/young-male-psysician-with-patient-measuring-blood-pressure_1303-17879.jpg" alt="Emergency Care">
+                </div>
+                <h3>Emergency Care</h3>
+                <p>24/7 emergency medical services with rapid response and expert trauma care.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <img src="https://img.freepik.com/free-photo/doctor-getting-patient-ready-ct-scan_23-2149367401.jpg" alt="Diagnostic Services">
+                </div>
+                <h3>Diagnostic Services</h3>
+                <p>Advanced diagnostic testing and imaging services for accurate health assessments.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <img src="https://img.freepik.com/free-photo/physiotherapist-treating-injured-knee-patient_23-2149167530.jpg" alt="Rehabilitation">
+                </div>
+                <h3>Rehabilitation</h3>
+                <p>Comprehensive physical therapy and rehabilitation programs for optimal recovery.</p>
+            </div>
+        </div>
+    </section>
+    <section class="testimonials">
+        <div class="section-title">
+            <h2>Patient reviews</h2>
+            <p>What our patients say about their experience</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-text">"The care and attention I received was exceptional. The doctors really listen and take time to understand your concerns."</p>
+                <p class="testimonial-author">- Sarah Johnson</p>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Professional, caring, and efficient. The entire staff made me feel comfortable throughout my treatment."</p>
+                <p class="testimonial-author">- Michael Chen</p>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"The telemedicine service is fantastic. It's so convenient to get expert medical advice from home."</p>
+                <p class="testimonial-author">- Emily Rodriguez</p>
+            </div>
+        </div>
+    </section>
+    <section class="success-story">
+        <div class="story-container">
+            <div class="section-title">
+                <h2>A Journey to Recovery</h2>
+                <p>Experience the comprehensive care that transformed Sarah's life</p>
+            </div>
+            
+            <div class="story-timeline">
+                <div class="timeline-entry">
+                    <div class="timeline-content">
+                        <div class="timeline-image">
+                            <img src="C:\Users\godss\Downloads\d1.jpg" alt="Dr. Emma Wilson - Initial Consultation">
+                        </div>
+                        <div class="timeline-text">
+                            <h3>Initial Consultation</h3>
+                            <h4>Dr. Emma Wilson - Primary Care Physician</h4>
+                            <p>"When Sarah first came to us, she was struggling with chronic fatigue and unexplained symptoms. Our comprehensive initial assessment helped identify the root causes of her condition."</p>
+                            <ul class="care-points">
+                                <li>Complete health history review</li>
+                                <li>Advanced diagnostic testing</li>
+                                <li>Personalized care plan development</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-entry reverse">
+                    <div class="timeline-content">
+                        <div class="timeline-image">
+                            <img src="C:\Users\godss\Downloads\Professional Portrait of an Older Gentleman.png" alt="Dr. James Chen - Specialist Care">
+                        </div>
+                        <div class="timeline-text">
+                            <h3>Specialist Intervention</h3>
+                            <h4>Dr. James Chen - Endocrinology Specialist</h4>
+                            <p>"We discovered Sarah had an underlying thyroid condition. Our team developed a targeted treatment approach combining medication with lifestyle modifications."</p>
+                            <ul class="care-points">
+                                <li>Specialized endocrine testing</li>
+                                <li>Customized medication plan</li>
+                                <li>Regular progress monitoring</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-entry">
+                    <div class="timeline-content">
+                        <div class="timeline-image">
+                            <img src="C:\Users\godss\Downloads\Physical Medicine and Rehabilitation Director of Intake.jpeg" alt="Dr. Maria Rodriguez - Holistic Care">
+                        </div>
+                        <div class="timeline-text">
+                            <h3>Holistic Support</h3>
+                            <h4>Dr. Maria Rodriguez - Wellness Coordinator</h4>
+                            <p>"Integrating nutrition and lifestyle changes was crucial. We worked with Sarah to develop sustainable habits that supported her recovery."</p>
+                            <ul class="care-points">
+                                <li>Personalized nutrition planning</li>
+                                <li>Stress management techniques</li>
+                                <li>Regular wellness workshops</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="patient-testimonial">
+                <div class="testimonial-content">
+                    <img src="C:\Users\godss\Downloads\download (6).jpeg" alt="Sarah - Recovered Patient" class="patient-image">
+                    <blockquote>
+                        "The comprehensive care I received was life-changing. From the initial consultation to ongoing support, every aspect of my health was addressed. Today, I'm back to my active lifestyle, feeling better than ever. The team's dedication and the coordinated approach to my treatment made all the difference."
+                        <cite>- Sarah Mitchell, Recovery Journey Completed in 2025</cite>
+                    </blockquote>
+                </div>
+                <div class="recovery-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">6</span>
+                        <span class="stat-label">Months to Recovery</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">12</span>
+                        <span class="stat-label">Specialist Sessions</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Symptom Improvement</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="subscription-plans">
+        <div class="section-title">
+            <h2>Healthcare Plans</h2>
+            <p>Choose the perfect care plan for you and your family</p>
+        </div>
+        <div class="plans-grid">
+            <div class="plan-card">
+                <div class="plan-header">
+                    <h3>Basic Care</h3>
+                    <div class="price">
+                        <span class="amount">$99</span>
+                        <span class="period">/month</span>
+                    </div>
+                </div>
+                <ul class="plan-features">
+                    <li>✓ Regular Health Check-ups</li>
+                    <li>✓ Basic Blood Work</li>
+                    <li>✓ 2 Doctor Visits/Month</li>
+                    <li>✓ Online Prescription Refills</li>
+                    <li>✓ 24/7 Phone Support</li>
+                    <li>✓ Basic Preventive Care</li>
+                </ul>
+                <a href="#contact" class="plan-button">Get Started</a>
+            </div>
+            
+            <div class="plan-card featured">
+                <div class="plan-header">
+                    <div class="featured-tag">Most Popular</div>
+                    <h3>Family Plus</h3>
+                    <div class="price">
+                        <span class="amount">$199</span>
+                        <span class="period">/month</span>
+                    </div>
+                </div>
+                <ul class="plan-features">
+                    <li>✓ All Basic Care Features</li>
+                    <li>✓ Family Coverage (Up to 4)</li>
+                    <li>✓ Unlimited Doctor Visits</li>
+                    <li>✓ Specialist Consultations</li>
+                    <li>✓ Mental Health Support</li>
+                    <li>✓ Dental Care Coverage</li>
+                    <li>✓ Priority Appointments</li>
+                </ul>
+                <a href="#contact" class="plan-button">Get Started</a>
+            </div>
+
+            <div class="plan-card">
+                <div class="plan-header">
+                    <h3>Premium Care</h3>
+                    <div class="price">
+                        <span class="amount">$299</span>
+                        <span class="period">/month</span>
+                    </div>
+                </div>
+                <ul class="plan-features">
+                    <li>✓ All Family Plus Features</li>
+                    <li>✓ Concierge Medical Service</li>
+                    <li>✓ Home Doctor Visits</li>
+                    <li>✓ International Coverage</li>
+                    <li>✓ Advanced Screenings</li>
+                    <li>✓ Alternative Medicine</li>
+                    <li>✓ Medical Emergency Support</li>
+                </ul>
+                <a href="#contact" class="plan-button">Get Started</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>HealthCare</h3>
+                <p>Providing quality healthcare services since 2020.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <ul class="footer-links">
+                    <li>123 Healthcare Ave</li>
+                    <li>New York, NY 10001</li>
+                    <li>Phone: (555) 123-4567</li>
+                    <li>Email: info@healthcare.com</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous"></script>
+</body>
+</html>
